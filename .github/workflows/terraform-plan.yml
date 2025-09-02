@@ -1,9 +1,9 @@
-name: Terraform Azure Workflow
+name: Terraform Plan
 
 on:
   push:
     branches:
-      - main
+      - develop
   pull_request:
     branches:
       - main
@@ -42,7 +42,3 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-
-      - name: Terraform Apply
-        # if: github.event_name == 'workflow_dispatch'
-        run: terraform apply -auto-approve tfplan
