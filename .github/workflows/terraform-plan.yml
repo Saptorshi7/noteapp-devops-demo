@@ -42,3 +42,15 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
+
+      - name: Create Pull Request
+        if: success()   # Only runs if plan succeeded
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto-pr/develop-to-main
+          base: main
+          title: "Terraform changes from develop"
+          body: |
+            Terraform plan completed successfully on **develop** branch.  
+            This PR proposes applying those changes to **main**.
