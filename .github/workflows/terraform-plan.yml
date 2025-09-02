@@ -48,7 +48,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: auto-pr/develop-to-main
+          branch: develop
           base: main
           title: "Terraform changes from develop"
           body: |
