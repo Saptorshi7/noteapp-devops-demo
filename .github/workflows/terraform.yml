@@ -1,4 +1,4 @@
-name: Terraform CI
+name: Terraform Azure Workflow
 
 on:
   push:
@@ -7,10 +7,10 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   terraform:
-    name: Terraform Workflow
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,12 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.5.6  # Specify the version you want
+          terraform_version: 1.5.6
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Terraform Init
         run: terraform init
@@ -29,4 +34,4 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -out=tfplan
