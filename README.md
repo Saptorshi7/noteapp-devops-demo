@@ -33,6 +33,7 @@ A simple **React-based Note Taking App** containerized with **Docker**, deployed
 │   ├── tf-destroy.yml
 │   └── docker-build.yml
 └── README.md               # Project documentation
+bash```
 
 ## ⚙️ Prerequisites
 - Node.js 18+
