@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main   # Only runs on successful merge into main
+    paths:
+      - 'infra/**'   # only run if files in infra/ change
 
 jobs:
   terraform-apply:
