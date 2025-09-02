@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - develop
+    paths:
+      - 'infra/**'   # only run if files in infra/ change
   workflow_dispatch:  # allows manual triggering
 
 jobs:
-  terraform:
+  terraform-plan:
     runs-on: ubuntu-latest
 
     permissions:
@@ -36,15 +38,19 @@ jobs:
           echo "ARM_TENANT_ID=${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}" >> $GITHUB_ENV
 
       - name: Terraform Init
+        working-directory: infra
         run: terraform init
 
       - name: Terraform Validate
+        working-directory: infra
         run: terraform validate
 
       - name: Terraform Plan
+        working-directory: infra
         run: terraform plan -out=tfplan
 
       - name: create pull request
-        run: gh pr create -B main -H develop --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+        if: success() 
+        run: gh pr create -B main -H develop --title 'Merge develop into main' --body 'Created by Github action'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

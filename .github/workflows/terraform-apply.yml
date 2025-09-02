@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main   # Only runs on successful merge into main
+    paths:
+      - 'infra/**'   # only run if files in infra/ change
 
 jobs:
   terraform-apply:
@@ -30,7 +32,9 @@ jobs:
           echo "ARM_TENANT_ID=${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}" >> $GITHUB_ENV
 
       - name: Terraform Init
+        working-directory: infra
         run: terraform init -input=false
 
       - name: Terraform Apply
+        working-directory: infra
         run: terraform apply -auto-approve -input=false
