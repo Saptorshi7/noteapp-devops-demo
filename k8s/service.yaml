@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+name: note-app
+namespace: note-app
+labels:
+app: note-app
+spec:
+type: LoadBalancer
+selector:
+app: note-app
+ports:
+- port: 80
+targetPort: 80
+protocol: TCP

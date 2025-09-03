@@ -1,0 +1,47 @@
+name: Deploy to AKS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "k8s/**"
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 🔑 Authenticate with Azure
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # ⛓️ Get AKS credentials
+      - name: Get AKS Credentials
+        run: |
+          az aks get-credentials \
+            --resource-group ${{ secrets.AKS_RG }} \
+            --name ${{ secrets.AKS_NAME }} \
+            --overwrite-existing
+
+      # 🐳 Update manifests with latest image
+      - name: Set image tag in k8s manifest
+        run: |
+          IMAGE=${{ secrets.ACR_NAME }}.azurecr.io/noteapp:${{ github.sha }}
+          sed -i "s|IMAGE_PLACEHOLDER|$IMAGE|g" k8s/deployment.yaml
+
+      # 🚀 Deploy to AKS
+      - name: Apply Kubernetes manifests
+        run: |
+          kubectl apply -f k8s/
+
+      # ✅ Verify rollout
+      - name: Verify deployment
+        run: |
+          kubectl rollout status deployment/noteapp-deployment
