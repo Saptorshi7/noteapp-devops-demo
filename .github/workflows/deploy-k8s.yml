@@ -47,4 +47,4 @@ jobs:
       # ✅ Verify rollout
       - name: Verify deployment
         run: |
-          kubectl rollout status deployment/note-app
+          kubectl rollout status deployment/note-app -n note-app
