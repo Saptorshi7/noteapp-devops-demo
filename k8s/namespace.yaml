@@ -1,0 +1,6 @@
+aPiVersion: v1
+kind: Namespace
+metadata:
+name: note-app
+labels:
+app: note-app
