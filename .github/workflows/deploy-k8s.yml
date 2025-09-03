@@ -39,7 +39,10 @@ jobs:
       # 🚀 Deploy to AKS
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f k8s/
+          kubectl apply -f k8s/namespace.yaml
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/hpa.yaml
 
       # ✅ Verify rollout
       - name: Verify deployment
