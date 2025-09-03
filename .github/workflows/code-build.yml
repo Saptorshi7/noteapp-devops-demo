@@ -46,6 +46,16 @@ jobs:
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/noteapp:${{ github.sha }} ./app
           docker tag ${{ secrets.ACR_NAME }}.azurecr.io/noteapp:${{ github.sha }} ${{ secrets.ACR_NAME }}.azurecr.io/noteapp:latest
 
+      # 🔍 Scan image with Trivy before pushing
+      - name: Trivy Image Scan
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: ${{ secrets.ACR_NAME }}.azurecr.io/noteapp:${{ github.sha }}
+          format: 'table'
+          exit-code: '1'     # fail on vulnerabilities
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
       # Push Docker image
       - name: Push Docker image
         run: |
