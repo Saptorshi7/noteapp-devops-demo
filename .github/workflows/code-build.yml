@@ -6,6 +6,7 @@ on:
       - "app/**"      # Only trigger if files inside app/ change
     branches:
       - develop          # Only for main branch (you can change to dev/staging)
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   build-and-push:
