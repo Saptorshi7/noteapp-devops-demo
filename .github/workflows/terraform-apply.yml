@@ -6,6 +6,7 @@ on:
       - main   # Only runs on successful merge into main
     paths:
       - 'infra/**'   # only run if files in infra/ change
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   terraform-apply:
