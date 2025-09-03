@@ -33,6 +33,7 @@ jobs:
       # 🔑 Create or update secret for ACR
       - name: Create imagePullSecret for ACR
         run: |
+          az acr update -n ${{ secrets.ACR_NAME }} --admin-enabled true
           ACR_USERNAME=$(az acr credential show -n ${{ secrets.ACR_NAME }} --query "username" -o tsv)
           ACR_PASSWORD=$(az acr credential show -n ${{ secrets.ACR_NAME }} --query "passwords[0].value" -o tsv)
           kubectl create secret docker-registry acr-cred \
