@@ -33,6 +33,7 @@ jobs:
       # 🔑 Create or update secret for ACR
       - name: Create imagePullSecret for ACR
         run: |
+          kubectl apply -f k8s/namespace.yaml
           az acr update -n ${{ secrets.ACR_NAME }} --admin-enabled true
           ACR_USERNAME=$(az acr credential show -n ${{ secrets.ACR_NAME }} --query "username" -o tsv)
           ACR_PASSWORD=$(az acr credential show -n ${{ secrets.ACR_NAME }} --query "passwords[0].value" -o tsv)
@@ -40,7 +41,7 @@ jobs:
             --docker-server=${{ secrets.ACR_NAME }}.azurecr.io \
             --docker-username=$ACR_USERNAME \
             --docker-password=$ACR_PASSWORD \
-            --namespace=noteapp \
+            --namespace=note-app \
             --dry-run=client -o yaml | kubectl apply -f -
 
       # 🐳 Update manifests with latest image
@@ -52,7 +53,6 @@ jobs:
       # 🚀 Deploy to AKS
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f k8s/namespace.yaml
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
           kubectl apply -f k8s/hpa.yaml
