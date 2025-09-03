@@ -1,36 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: note-app
-namespace: note-app
-labels:
-app: note-app
+  name: note-app
+  namespace: note-app
+  labels:
+    app: note-app
 spec:
-replicas: 2
-selector:
-matchLabels:
-app: note-app
-template:
-metadata:
-labels:
-app: note-app
-spec:
-containers:
-- name: note-app
-image: IMAGE_PLACEHOLDER
-imagePullPolicy: IfNotPresent
-ports:
-- containerPort: 80
-readinessProbe:
-httpGet:
-path: /healthz
-port: 80
-initialDelaySeconds: 5
-periodSeconds: 10
-livenessProbe:
-httpGet:
-path: /healthz
-port: 80
-initialDelaySeconds: 30
-periodSeconds: 20
-# No imagePullSecrets needed when AKS MI has AcrPull on ACR
+  replicas: 2
+  selector:
+    matchLabels:
+      app: note-app
+  template:
+    metadata:
+      labels:
+        app: note-app
+    spec:
+      containers:
+        - name: noteapp
+          image: IMAGE_PLACEHOLDER   # 👈 replaced in pipeline
+          ports:
+            - containerPort: 80

@@ -1,6 +1,6 @@
-aPiVersion: v1
+apiVersion: v1
 kind: Namespace
 metadata:
-name: note-app
+  name: note-app
 labels:
-app: note-app
+  app: note-app
