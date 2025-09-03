@@ -28,6 +28,7 @@ jobs:
           az aks get-credentials \
             --resource-group ${{ secrets.AKS_RG }} \
             --name ${{ secrets.AKS_NAME }} \
+            --attach-acr ${{ secrets.ACR_NAME }} \
             --overwrite-existing
 
       # 🐳 Update manifests with latest image
