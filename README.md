@@ -2,8 +2,6 @@
 
 A simple **React-based Note Taking App** containerized with **Docker**, deployed to **Azure Kubernetes Service (AKS)**, and fully automated using **Terraform** and **GitHub Actions**.
 
----
-
 ## 📌 Features
 - React-based UI for creating and managing notes
 - Containerized using **Docker**
@@ -14,8 +12,6 @@ A simple **React-based Note Taking App** containerized with **Docker**, deployed
   - **Trivy** → Docker image vulnerability scanning
   - **Checkov** → Terraform code security scanning
 - Branch protection: code changes allowed only via Pull Requests (PRs)
-
----
 
 ## 🏗️ Project Structure
 ```bash
@@ -47,14 +43,16 @@ A simple **React-based Note Taking App** containerized with **Docker**, deployed
 └── README.md               # Project documentation
 ```
 
+## Infrastructure Architecture 🏗️
+
+![Infrastructure Architecture](images/lab4.png)
+
 ## ⚙️ Prerequisites
 - Node.js 18+
 - Docker
 - Terraform
 - Azure CLI
 - GitHub CLI
-
----
 
 ## 🚀 Local Development
 Clone the repo:
@@ -75,8 +73,6 @@ npm start
 
 App runs on: http://localhost:3000
 
----
-
 ## 🐳 Docker Build & Run
 Build Docker image:
 ```bash
@@ -88,8 +84,6 @@ Run container:
 docker run -d -p 8080:80 note-app
 ```
 Visit: http://localhost:8080
-
----
 
 ## ☁️ Infrastructure Deployment
 
@@ -118,8 +112,6 @@ Resources created:
 - Azure Kubernetes Service (AKS)
 - Networking resources (VNet, Subnets, NSGs)
 
----
-
 ## 🔄 CI/CD Workflows
 GitHub Actions pipelines are defined in .github/workflows/:
 - **Terraform Plan** → Runs on PRs to main, scans with Checkov
@@ -128,7 +120,9 @@ GitHub Actions pipelines are defined in .github/workflows/:
 - **Docker Build & Push** → Builds and pushes app image to ACR
 - **Deployment to AKS** → Deploys latest image to AKS
 
----
+***CI/CD Pipeline Flow***
+
+![cicd pipeline flow](images/image.png)
 
 ## 🔒 Security
 - **Trivy** scans Docker images for vulnerabilities
@@ -138,8 +132,6 @@ Branch protection enabled:
 - No direct pushes to main
 - PR approval required
 - Terraform Plan must pass before merge
-
----
 
 ## 🛠️ Rollback
 Rollback is supported by:
