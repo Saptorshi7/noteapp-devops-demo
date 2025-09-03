@@ -1,24 +1,17 @@
-# ---------- Build stage ----------
-FROM node:18-alpine AS build
-WORKDIR /app
-# Install dependencies separately for better caching
-COPY package.json package-lock.json* yarn.lock* ./
-RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-elif [ -f package-lock.json ]; then npm ci; \
-else npm install; fi
+# Step 1: Build the React App
+FROM node:16-alpine as build
 
-# Copy source
-COPY . .
-# Build production artifacts
+WORKDIR /app
+COPY . ./
+RUN npm install
 RUN npm run build
 
-# ---------- Runtime stage ----------
-FROM nginx:1.27-alpine
-# Copy SPA-friendly nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-# Copy build output
-COPY --from=build /app/build /usr/share/nginx/html
+RUN ls -alh /app/dist
+
+# Step 2: Serve the React App
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
 EXPOSE 80
-HEALTHCHECK --interval=30s --timeout=3s \
-CMD wget -qO- http://127.0.0.1:80/ || exit 1
 CMD ["nginx", "-g", "daemon off;"]
