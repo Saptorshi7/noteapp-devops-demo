@@ -22,16 +22,28 @@ A simple **React-based Note Taking App** containerized with **Docker**, deployed
 .
 ├── infra/                  # Terraform code for AKS, ACR, networking, etc.
 │   ├── main.tf
-│   ├── variables.tf
-│   └── outputs.tf
-├── src/                    # React app source code
-├── public/                 # Static assets
-├── Dockerfile              # Multi-stage Docker build
+│   ├── backend.tf
+│   └── providers.tf
+├── app/                    # React app source code
+│   ├── public/             # Static assets
+│   ├── src/
+│   ├── tests/
+│   ├── Dockerfile          # Multi-stage Docker build
+│   ├── index.html
+│   ├── nginx.conf
+│   ├── package.json
+│   └── vite.config.js
+├── k8s/
+│   ├── namespace.yml
+│   ├── deployment.yml
+│   ├── service.yml
+│   └── hpa.yml                           
 ├── .github/workflows/      # GitHub Actions pipelines
 │   ├── tf-plan.yml
 │   ├── tf-apply.yml
 │   ├── tf-destroy.yml
-│   └── docker-build.yml
+│   ├── docker-build.yml
+│   └── deploy-k8s.yml
 └── README.md               # Project documentation
 ```
 
@@ -110,17 +122,17 @@ Resources created:
 
 ## 🔄 CI/CD Workflows
 GitHub Actions pipelines are defined in .github/workflows/:
-- Terraform Plan → Runs on PRs to main, scans with Checkov
-- Terraform Apply → Runs after merge to main, provisions infra
-- Terraform Destroy → Manually triggered workflow
-- Docker Build & Push → Builds and pushes app image to ACR
-- Deployment to AKS → Deploys latest image to AKS
+- **Terraform Plan** → Runs on PRs to main, scans with Checkov
+- **Terraform Apply** → Runs after merge to main, provisions infra
+- **Terraform Destroy** → Manually triggered workflow
+- **Docker Build & Push** → Builds and pushes app image to ACR
+- **Deployment to AKS** → Deploys latest image to AKS
 
 ---
 
 ## 🔒 Security
-- Trivy scans Docker images for vulnerabilities
-- Checkov scans Terraform for misconfigurations
+- **Trivy** scans Docker images for vulnerabilities
+- **Checkov** scans Terraform for misconfigurations
 
 Branch protection enabled:
 - No direct pushes to main
