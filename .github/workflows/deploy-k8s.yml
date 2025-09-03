@@ -28,8 +28,19 @@ jobs:
           az aks get-credentials \
             --resource-group ${{ secrets.AKS_RG }} \
             --name ${{ secrets.AKS_NAME }} \
-            --attach-acr ${{ secrets.ACR_NAME }} \
             --overwrite-existing
+      
+      # 🔑 Create or update secret for ACR
+      - name: Create imagePullSecret for ACR
+        run: |
+          ACR_USERNAME=$(az acr credential show -n ${{ secrets.ACR_NAME }} --query "username" -o tsv)
+          ACR_PASSWORD=$(az acr credential show -n ${{ secrets.ACR_NAME }} --query "passwords[0].value" -o tsv)
+          kubectl create secret docker-registry acr-cred \
+            --docker-server=${{ secrets.ACR_NAME }}.azurecr.io \
+            --docker-username=$ACR_USERNAME \
+            --docker-password=$ACR_PASSWORD \
+            --namespace=noteapp \
+            --dry-run=client -o yaml | kubectl apply -f -
 
       # 🐳 Update manifests with latest image
       - name: Set image tag in k8s manifest
