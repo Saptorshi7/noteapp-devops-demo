@@ -27,6 +27,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
   identity {
     type = "SystemAssigned"
   }
+
+  depends_on = [module.rg]
+
 }
 
 # Azure Container Registry (ACR)
