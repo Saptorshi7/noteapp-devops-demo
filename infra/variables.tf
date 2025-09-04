@@ -8,16 +8,6 @@ variable "project_name" {
     default = "react-app"
 }
 
-variable "rg_name" {
-    type = string
-    default = "${var.project_name}-rg"
-}
-
-variable "aks_name" {
-    type = string
-    default = "${var.project_name}-aks"
-}
-
 variable "default_node_pool_name" {
     type = string
     default = "default"
@@ -36,4 +26,9 @@ variable "default_node_pool_vm_size" {
 variable "identity_type" {
     type = string
     default = "SystemAssigned"
+}
+
+locals {
+  rg_name = "${var.project_name}-rg"
+  aks_name = = "${var.project_name}-aks"
 }

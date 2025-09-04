@@ -7,7 +7,7 @@ provider "azurerm" {
 module "rg" {
   source              = "./modules/rg"
 
-  name     = var.rg_name
+  name     = locals.rg_name
   location = var.location
 }
 
@@ -15,7 +15,7 @@ module "rg" {
 module "aks" {
   source              = "./modules/aks"
 
-  name     = var.aks_name
+  name     = locals.aks_name
   location = var.location
   resource_group_name     = var.rg_name
   dns_prefix          = var.project_name
