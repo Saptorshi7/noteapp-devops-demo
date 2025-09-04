@@ -4,16 +4,18 @@ provider "azurerm" {
 }
 
 # Resource group
-resource "azurerm_resource_group" "rg" {
-  name     = "react-app-rg"
-  location = "South India"
+module "rg" {
+  source              = "./modules/rg"
+
+  name     = var.rg_name
+  location = var.location
 }
 
 # Azure Kubernetes Service (AKS)
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "react-app-aks"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.location
+  resource_group_name = var.rg_name
   dns_prefix          = "react-app"
 
   default_node_pool {
@@ -30,7 +32,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
 # Azure Container Registry (ACR)
 resource "azurerm_container_registry" "acr" {
   name                = "reactappacr47"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = var.rg_name
+  location            = var.location
   sku                 = "Basic"
 }
