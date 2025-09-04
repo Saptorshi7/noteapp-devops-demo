@@ -7,7 +7,7 @@ provider "azurerm" {
 module "rg" {
   source              = "./modules/rg"
 
-  name     = locals.rg_name
+  name     = local.rg_name
   location = var.location
 }
 
@@ -15,7 +15,7 @@ module "rg" {
 module "aks" {
   source              = "./modules/aks"
 
-  name     = locals.aks_name
+  name     = local.aks_name
   location = var.location
   resource_group_name     = var.rg_name
   dns_prefix          = var.project_name
@@ -32,7 +32,7 @@ module "aks" {
 # Azure Container Registry (ACR)
 resource "azurerm_container_registry" "acr" {
   name                = "reactappacr47"
-  resource_group_name = var.rg_name
+  resource_group_name = local.rg_name
   location            = var.location
   sku                 = "Basic"
 }
