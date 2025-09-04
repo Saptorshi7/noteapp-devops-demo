@@ -12,25 +12,22 @@ module "rg" {
 }
 
 # Azure Kubernetes Service (AKS)
-resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "react-app-aks"
-  location            = var.location
-  resource_group_name = var.rg_name
-  dns_prefix          = "react-app"
+module "aks" {
+  source              = "./modules/aks"
 
-  default_node_pool {
-    name       = "default"
-    node_count = 1
-    vm_size    = "Standard_D4ds_v5"
-  }
-
-  identity {
-    type = "SystemAssigned"
-  }
+  name     = var.aks_name
+  location = var.location
+  resource_group_name     = var.rg_name
+  dns_prefix          = var.project_name
+  default_node_pool_name       = var.default_node_pool_name
+  default_node_pool_node_count = var.default_node_pool_node_count
+  default_node_pool_vm_size    = var.default_node_pool_vm_size
+  identity_type = var.identity_type
 
   depends_on = [module.rg]
-
 }
+
+
 
 # Azure Container Registry (ACR)
 resource "azurerm_container_registry" "acr" {
