@@ -28,7 +28,9 @@ module "aks" {
 }
 
 # Azure Container Registry (ACR)
-resource "azurerm_container_registry" "acr" {
+module "acr" {
+  source              = "./modules/acr"
+
   name                = var.acr_name
   resource_group_name = local.rg_name
   location            = var.location
