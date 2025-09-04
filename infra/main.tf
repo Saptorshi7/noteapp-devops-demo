@@ -17,7 +17,7 @@ module "aks" {
 
   name     = local.aks_name
   location = var.location
-  resource_group_name     = var.rg_name
+  resource_group_name     = local.rg_name
   dns_prefix          = var.project_name
   default_node_pool_name       = var.default_node_pool_name
   default_node_pool_node_count = var.default_node_pool_node_count
