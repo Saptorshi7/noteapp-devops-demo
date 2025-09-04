@@ -30,5 +30,5 @@ variable "identity_type" {
 
 locals {
   rg_name = "${var.project_name}-rg"
-  aks_name = = "${var.project_name}-aks"
+  aks_name = "${var.project_name}-aks"
 }
