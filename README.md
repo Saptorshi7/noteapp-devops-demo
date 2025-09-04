@@ -45,9 +45,7 @@ A simple **React-based Note Taking App** containerized with **Docker**, deployed
 
 ## Infrastructure Architecture 🏗️
 
-<p align="center">
-  <img src="images/lab4.png" alt="Infrastructure Architecture" width="500">
-</p>
+![Infrastructure Architecture](images/lab4.png)
 
 ## ⚙️ Prerequisites
 - Node.js 18+
