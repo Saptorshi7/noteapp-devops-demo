@@ -1,0 +1,8 @@
+variable "name" {}
+variable "location" {}
+variable "resource_group_name" {}
+variable "dns_prefix" {}
+variable "default_node_pool_name" {}
+variable "default_node_pool_node_count" {}
+variable "default_node_pool_vm_size" {}
+variable "identity_type" {}
