@@ -28,6 +28,16 @@ variable "identity_type" {
     default = "SystemAssigned"
 }
 
+variable "acr_name" {
+    type = string
+    default = "reactappacr47"
+}
+
+variable "sku" {
+    type = string
+    default = "Basic"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

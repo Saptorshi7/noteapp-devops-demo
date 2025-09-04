@@ -27,14 +27,12 @@ module "aks" {
   depends_on = [module.rg]
 }
 
-
-
 # Azure Container Registry (ACR)
 resource "azurerm_container_registry" "acr" {
-  name                = "reactappacr47"
+  name                = var.acr_name
   resource_group_name = local.rg_name
   location            = var.location
-  sku                 = "Basic"
+  sku                 = var.sku
 
   depends_on = [module.rg]
 }
