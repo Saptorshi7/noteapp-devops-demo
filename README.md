@@ -124,7 +124,7 @@ GitHub Actions pipelines are defined in .github/workflows/:
 
 ***CI/CD Pipeline Flow***
 
-![cicd pipeline flow](images/image.png)
+![cicd pipeline flow](images/pipeline.png)
 
 ## 🔒 Security
 - **Trivy** scans Docker images for vulnerabilities
