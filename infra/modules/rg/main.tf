@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "react-app-rg"
-  location = "South India"
+  name     = var.name
+  location = var.location
 }

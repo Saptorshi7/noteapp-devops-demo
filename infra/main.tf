@@ -6,6 +6,9 @@ provider "azurerm" {
 # Resource group
 module "rg" {
   source              = "./modules/rg"
+
+  name     = "react-app-rg"
+  location = "South India"
 }
 
 # Azure Kubernetes Service (AKS)
