@@ -35,6 +35,7 @@ module "acr" {
   resource_group_name = local.rg_name
   location            = var.location
   sku                 = var.sku
+  zone_redundancy_enabled = var.zone_redundancy_enabled
 
   depends_on = [module.rg]
 }

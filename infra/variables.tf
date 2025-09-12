@@ -38,6 +38,11 @@ variable "sku" {
     default = "Basic"
 }
 
+variable "zone_redundancy_enabled" {
+    type = string
+    default = "true"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
