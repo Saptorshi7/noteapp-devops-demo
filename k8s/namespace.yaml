@@ -4,3 +4,4 @@ metadata:
   name: note-app
   labels:
     app: note-app
+    
