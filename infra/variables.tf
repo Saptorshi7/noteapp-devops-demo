@@ -35,7 +35,7 @@ variable "acr_name" {
 
 variable "sku" {
     type = string
-    default = "Basic"
+    default = "Standard"
 }
 
 variable "zone_redundancy_enabled" {
@@ -43,15 +43,15 @@ variable "zone_redundancy_enabled" {
     default = "true"
 }
 
-variable "resource_type" {
-    type = string
-    default = "ContainerRegistry"
-}
+# variable "resource_type" {
+#     type = string
+#     default = "ContainerRegistry"
+# }
 
-variable "tier" {
-    type = string
-    default = "Standard"
-}
+# variable "tier" {
+#     type = string
+#     default = "Standard"
+# }
 
 locals {
   rg_name = "${var.project_name}-rg"
