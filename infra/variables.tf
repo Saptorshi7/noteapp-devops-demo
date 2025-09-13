@@ -53,6 +53,11 @@ variable "zone_redundancy_enabled" {
 #     default = "Standard"
 # }
 
+variable "public_network_access_enabled" {
+    type = string
+    default = "false"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

@@ -4,6 +4,7 @@ resource "azurerm_container_registry" "acr" {
   location            = var.location
   sku                 = var.sku
   zone_redundancy_enabled = var.zone_redundancy_enabled
+  public_network_access_enabled = var.public_network_access_enabled
 }
 
 # Enable Defender for Container Registries (ACR image scanning)
