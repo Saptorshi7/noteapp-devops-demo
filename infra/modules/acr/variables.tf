@@ -6,3 +6,4 @@ variable "zone_redundancy_enabled" {}
 # variable "resource_type" {}
 # variable "tier" {}
 variable "public_network_access_enabled" {}
+variable "georeplications_location" {}

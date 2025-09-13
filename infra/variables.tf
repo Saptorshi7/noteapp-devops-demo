@@ -3,6 +3,11 @@ variable "location" {
     default = "South India"
 }
 
+variable "georeplications_location" {
+    type = string
+    default = "North India"
+}
+
 variable "project_name" {
     type = string
     default = "react-app"
@@ -35,7 +40,7 @@ variable "acr_name" {
 
 variable "sku" {
     type = string
-    default = "Standard"
+    default = "Premium"
 }
 
 variable "zone_redundancy_enabled" {

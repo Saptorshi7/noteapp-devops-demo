@@ -39,6 +39,7 @@ module "acr" {
   # resource_type = var.resource_type
   # tier          = var.tier
   public_network_access_enabled = var.public_network_access_enabled
+  georeplications_location = var.georeplications_location
 
   depends_on = [module.rg]
 }
