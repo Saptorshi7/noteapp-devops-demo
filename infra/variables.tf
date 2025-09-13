@@ -43,6 +43,16 @@ variable "zone_redundancy_enabled" {
     default = "true"
 }
 
+variable "resource_type" {
+    type = string
+    default = "ContainerRegistry"
+}
+
+variable "tier" {
+    type = string
+    default = "Standard"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

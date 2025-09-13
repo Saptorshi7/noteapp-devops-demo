@@ -36,6 +36,8 @@ module "acr" {
   location            = var.location
   sku                 = var.sku
   zone_redundancy_enabled = var.zone_redundancy_enabled
+  resource_type = var.resource_type
+  tier          = var.tier
 
   depends_on = [module.rg]
 }
