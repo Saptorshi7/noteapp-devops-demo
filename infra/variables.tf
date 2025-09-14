@@ -43,7 +43,7 @@ variable "sku" {
     default = "Premium"
 }
 
-variable "zone_redundancy_enabled" {
+variable "bool_true" {
     type = string
     default = "true"
 }

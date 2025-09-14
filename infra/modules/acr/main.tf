@@ -3,12 +3,13 @@ resource "azurerm_container_registry" "acr" {
   resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = var.sku
-  zone_redundancy_enabled = var.zone_redundancy_enabled
+  zone_redundancy_enabled = var.bool_true
   public_network_access_enabled = var.public_network_access_enabled
+  data_endpoint_enabled = var.bool_true
 
   georeplications {
     location                = var.georeplications_location
-    zone_redundancy_enabled = var.zone_redundancy_enabled
+    zone_redundancy_enabled = var.bool_true
     tags                    = {}
  }
 }

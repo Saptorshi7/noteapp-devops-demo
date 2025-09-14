@@ -35,7 +35,7 @@ module "acr" {
   resource_group_name = local.rg_name
   location            = var.location
   sku                 = var.sku
-  zone_redundancy_enabled = var.zone_redundancy_enabled
+  zone_redundancy_enabled = var.bool_true
   # resource_type = var.resource_type
   # tier          = var.tier
   public_network_access_enabled = var.public_network_access_enabled
