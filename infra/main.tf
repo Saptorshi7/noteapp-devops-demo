@@ -40,7 +40,7 @@ module "acr" {
   # tier          = var.tier
   public_network_access_enabled = var.public_network_access_enabled
   georeplications_location = var.georeplications_location
-  retention_policy_in_days = var.retention_policy_in_days
+  no_one = var.no_one
 
   depends_on = [module.rg]
 }
