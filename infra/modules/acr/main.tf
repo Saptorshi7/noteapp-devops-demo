@@ -6,6 +6,7 @@ resource "azurerm_container_registry" "acr" {
   zone_redundancy_enabled = var.bool_true
   public_network_access_enabled = var.public_network_access_enabled
   data_endpoint_enabled = var.bool_true
+  quarantine_policy_enabled = var.bool_true
 
   georeplications {
     location                = var.georeplications_location
