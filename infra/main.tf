@@ -20,7 +20,7 @@ module "aks" {
   resource_group_name     = local.rg_name
   dns_prefix          = var.project_name
   default_node_pool_name       = var.default_node_pool_name
-  default_node_pool_node_count = var.default_node_pool_node_count
+  default_node_pool_node_count = var.no_one
   default_node_pool_vm_size    = var.default_node_pool_vm_size
   identity_type = var.identity_type
 
@@ -40,6 +40,7 @@ module "acr" {
   # tier          = var.tier
   public_network_access_enabled = var.public_network_access_enabled
   georeplications_location = var.georeplications_location
+  retention_policy_in_days = var.retention_policy_in_days
 
   depends_on = [module.rg]
 }

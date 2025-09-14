@@ -7,3 +7,4 @@ variable "bool_true" {}
 # variable "tier" {}
 variable "public_network_access_enabled" {}
 variable "georeplications_location" {}
+variable "no_one" {}

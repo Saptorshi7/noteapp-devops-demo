@@ -18,7 +18,7 @@ variable "default_node_pool_name" {
     default = "default"
 }
 
-variable "default_node_pool_node_count" {
+variable "no_one" {
     type = number
     default = 1
 }
