@@ -7,6 +7,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   local_account_disabled = var.bool_true
   disk_encryption_set_id = var.disk_encryption_set_id
   azure_policy_enabled = var.bool_true
+  private_cluster_enabled = var.bool_true
 
   default_node_pool {
     name       = var.default_node_pool_name
