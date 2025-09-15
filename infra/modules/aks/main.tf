@@ -4,6 +4,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   resource_group_name = var.resource_group_name
   dns_prefix          = var.dns_prefix
   automatic_upgrade_channel = var.automatic_upgrade_channel
+  local_account_disabled = var.local_account_disabled
 
   default_node_pool {
     name       = var.default_node_pool_name
