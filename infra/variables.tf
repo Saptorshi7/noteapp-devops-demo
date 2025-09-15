@@ -79,8 +79,8 @@ variable "automatic_upgrade_channel" {
 }
 
 variable "api_server_access_profile_authorized_ip_ranges" {
-    type = string
-    default = "192.168.0.0/16"
+     type    = list(string)
+  default = ["192.168.0.0/16"] # ✅ list of strings
 }
 
 variable "max_pods" {
