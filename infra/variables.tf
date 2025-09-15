@@ -98,6 +98,11 @@ variable "aks_sku" {
     default = "Standard"
 }
 
+variable "default_node_pool_os_disk_type" {
+    type = string
+    default = "Ephemeral"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

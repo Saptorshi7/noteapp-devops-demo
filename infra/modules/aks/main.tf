@@ -14,8 +14,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
     name       = var.default_node_pool_name
     node_count = var.default_node_pool_node_count
     vm_size    = var.default_node_pool_vm_size
-    max_pods   = var.max_pods
+    max_pods   = var.default_node_pool_max_pods
     host_encryption_enabled = var.bool_true
+    os_disk_type = var.default_node_pool_os_disk_type
   }
 
   identity {
