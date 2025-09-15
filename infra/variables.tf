@@ -78,6 +78,11 @@ variable "automatic_upgrade_channel" {
     default = "stable"
 }
 
+variable "api_server_access_profile_authorized_ip_ranges" {
+    type = string
+    default = "192.168.0.0/16"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

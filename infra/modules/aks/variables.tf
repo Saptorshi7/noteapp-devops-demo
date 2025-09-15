@@ -9,3 +9,4 @@ variable "identity_type" {}
 variable "network_profile_network_policy" {}
 variable "oms_agent_log_analytics_workspace_id" {}
 variable "automatic_upgrade_channel" {}
+variable "api_server_access_profile_authorized_ip_ranges" {}

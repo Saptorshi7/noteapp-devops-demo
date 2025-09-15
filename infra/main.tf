@@ -26,6 +26,7 @@ module "aks" {
   network_profile_network_policy = var.network_profile_network_policy
   oms_agent_log_analytics_workspace_id = var.oms_agent_log_analytics_workspace_id
   automatic_upgrade_channel = var.automatic_upgrade_channel
+  api_server_access_profile_authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
 
   depends_on = [module.rg]
 }
