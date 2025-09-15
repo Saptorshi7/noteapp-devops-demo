@@ -27,6 +27,7 @@ module "aks" {
   oms_agent_log_analytics_workspace_id = var.oms_agent_log_analytics_workspace_id
   automatic_upgrade_channel = var.automatic_upgrade_channel
   api_server_access_profile_authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
+  max_pods = var.max_pods
 
   depends_on = [module.rg]
 }

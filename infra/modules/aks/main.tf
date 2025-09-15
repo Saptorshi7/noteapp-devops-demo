@@ -9,6 +9,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     name       = var.default_node_pool_name
     node_count = var.default_node_pool_node_count
     vm_size    = var.default_node_pool_vm_size
+    max_pods   = var.max_pods
   }
 
   identity {

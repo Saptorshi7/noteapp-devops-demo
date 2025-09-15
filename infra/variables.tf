@@ -83,6 +83,11 @@ variable "api_server_access_profile_authorized_ip_ranges" {
     default = "192.168.0.0/16"
 }
 
+variable "max_pods" {
+    type = number
+    default = 50
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
