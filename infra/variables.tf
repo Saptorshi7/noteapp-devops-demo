@@ -63,6 +63,11 @@ variable "public_network_access_enabled" {
     default = "false"
 }
 
+variable "network_profile_network_policy" {
+    type = string
+    default = "azure"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

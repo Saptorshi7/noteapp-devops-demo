@@ -13,4 +13,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   identity {
     type = var.identity_type
   }
+
+   network_profile {
+    network_policy=var.network_profile_network_policy
+   }
 }
