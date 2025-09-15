@@ -5,7 +5,7 @@ variable "location" {
 
 variable "georeplications_location" {
     type = string
-    default = "North India"
+    default = "Central India"
 }
 
 variable "project_name" {
