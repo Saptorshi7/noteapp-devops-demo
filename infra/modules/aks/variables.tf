@@ -6,3 +6,12 @@ variable "default_node_pool_name" {}
 variable "default_node_pool_node_count" {}
 variable "default_node_pool_vm_size" {}
 variable "identity_type" {}
+variable "network_profile_network_policy" {}
+variable "oms_agent_log_analytics_workspace_id" {}
+variable "automatic_upgrade_channel" {}
+variable "api_server_access_profile_authorized_ip_ranges" {}
+variable "default_node_pool_max_pods" {}
+variable "bool_true" {}
+variable "disk_encryption_set_id" {}
+variable "aks_sku" {}
+variable "default_node_pool_os_disk_type" {}

@@ -3,6 +3,11 @@ variable "location" {
     default = "South India"
 }
 
+variable "georeplications_location" {
+    type = string
+    default = "Central India"
+}
+
 variable "project_name" {
     type = string
     default = "react-app"
@@ -13,7 +18,7 @@ variable "default_node_pool_name" {
     default = "default"
 }
 
-variable "default_node_pool_node_count" {
+variable "no_one" {
     type = number
     default = 1
 }
@@ -35,7 +40,67 @@ variable "acr_name" {
 
 variable "sku" {
     type = string
-    default = "Basic"
+    default = "Premium"
+}
+
+variable "bool_true" {
+    type = string
+    default = "true"
+}
+
+# variable "resource_type" {
+#     type = string
+#     default = "ContainerRegistry"
+# }
+
+# variable "tier" {
+#     type = string
+#     default = "Standard"
+# }
+
+variable "public_network_access_enabled" {
+    type = string
+    default = "false"
+}
+
+variable "network_profile_network_policy" {
+    type = string
+    default = "azure"
+}
+
+variable "oms_agent_log_analytics_workspace_id" {
+    type = string
+    default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+}
+
+variable "automatic_upgrade_channel" {
+    type = string
+    default = "stable"
+}
+
+variable "api_server_access_profile_authorized_ip_ranges" {
+     type    = list(string)
+  default = ["192.168.0.0/16"] # ✅ list of strings
+}
+
+variable "max_pods" {
+    type = number
+    default = 50
+}
+
+variable "disk_encryption_set_id" {
+    type = string
+    default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.Compute/diskEncryptionSets/my-des"
+}
+
+variable "aks_sku" {
+    type = string
+    default = "Standard"
+}
+
+variable "default_node_pool_os_disk_type" {
+    type = string
+    default = "Ephemeral"
 }
 
 locals {
