@@ -70,7 +70,7 @@ variable "network_profile_network_policy" {
 
 variable "oms_agent_log_analytics_workspace_id" {
     type = string
-    default = "workspaceResourceId"
+    default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 }
 
 variable "automatic_upgrade_channel" {
@@ -90,7 +90,7 @@ variable "max_pods" {
 
 variable "disk_encryption_set_id" {
     type = string
-    default = "someId"
+    default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.Compute/diskEncryptionSets/my-des"
 }
 
 variable "aks_sku" {
