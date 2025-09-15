@@ -30,6 +30,7 @@ module "aks" {
   max_pods = var.max_pods
   bool_true = var.bool_true
   disk_encryption_set_id = var.disk_encryption_set_id
+  aks_sku = var.aks_sku
 
   depends_on = [module.rg]
 }

@@ -8,6 +8,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   disk_encryption_set_id = var.disk_encryption_set_id
   azure_policy_enabled = var.bool_true
   private_cluster_enabled = var.bool_true
+  sku_tier = var.aks_sku
 
   default_node_pool {
     name       = var.default_node_pool_name

@@ -93,6 +93,11 @@ variable "disk_encryption_set_id" {
     default = "someId"
 }
 
+variable "aks_sku" {
+    type = string
+    default = "Standard"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

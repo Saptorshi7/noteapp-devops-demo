@@ -13,3 +13,4 @@ variable "api_server_access_profile_authorized_ip_ranges" {}
 variable "max_pods" {}
 variable "bool_true" {}
 variable "disk_encryption_set_id" {}
+variable "aks_sku" {}
