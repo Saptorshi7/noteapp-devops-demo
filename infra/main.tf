@@ -24,6 +24,7 @@ module "aks" {
   default_node_pool_vm_size    = var.default_node_pool_vm_size
   identity_type = var.identity_type
   network_profile_network_policy = var.network_profile_network_policy
+  oms_agent_log_analytics_workspace_id = var.oms_agent_log_analytics_workspace_id
 
   depends_on = [module.rg]
 }

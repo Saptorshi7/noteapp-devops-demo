@@ -7,3 +7,4 @@ variable "default_node_pool_node_count" {}
 variable "default_node_pool_vm_size" {}
 variable "identity_type" {}
 variable "network_profile_network_policy" {}
+variable "oms_agent_log_analytics_workspace_id" {}

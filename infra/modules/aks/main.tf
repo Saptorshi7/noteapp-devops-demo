@@ -18,4 +18,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
     network_plugin=var.network_profile_network_policy
     network_policy=var.network_profile_network_policy
    }
+
+    oms_agent {
+      log_analytics_workspace_id = var.oms_agent_log_analytics_workspace_id
+    }
+  
 }

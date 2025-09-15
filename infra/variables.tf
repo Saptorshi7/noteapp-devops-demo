@@ -68,6 +68,11 @@ variable "network_profile_network_policy" {
     default = "azure"
 }
 
+variable "oms_agent_log_analytics_workspace_id" {
+    type = string
+    default = "workspaceResourceId"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
