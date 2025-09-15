@@ -31,5 +31,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
   api_server_access_profile {
     authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
   }
+
+  key_vault_secrets_provider {
+    secret_rotation_enabled = var.bool_true
+  }
   
 }
