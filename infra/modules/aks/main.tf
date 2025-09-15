@@ -15,6 +15,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
    network_profile {
+    network_plugin=var.network_profile_network_policy
     network_policy=var.network_profile_network_policy
    }
 }
