@@ -8,6 +8,7 @@ resource "azurerm_container_registry" "acr" {
   data_endpoint_enabled = var.bool_true
   quarantine_policy_enabled = var.bool_true
   retention_policy_in_days = var.no_one
+  trust_policy_enabled = var.bool_true
 
   georeplications {
     location                = var.georeplications_location
