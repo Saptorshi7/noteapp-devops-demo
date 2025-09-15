@@ -23,7 +23,7 @@ module "aks" {
   default_node_pool_node_count = var.no_one
   default_node_pool_vm_size    = var.default_node_pool_vm_size
   identity_type = var.identity_type
-  network_profile_network_policy = 
+  network_profile_network_policy = var.network_profile_network_policy
 
   depends_on = [module.rg]
 }
