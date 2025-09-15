@@ -88,6 +88,11 @@ variable "max_pods" {
     default = 50
 }
 
+variable "disk_encryption_set_id" {
+    type = string
+    default = "someId"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

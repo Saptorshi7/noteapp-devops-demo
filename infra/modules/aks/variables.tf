@@ -12,3 +12,4 @@ variable "automatic_upgrade_channel" {}
 variable "api_server_access_profile_authorized_ip_ranges" {}
 variable "max_pods" {}
 variable "local_account_disabled" {}
+variable "disk_encryption_set_id" {}

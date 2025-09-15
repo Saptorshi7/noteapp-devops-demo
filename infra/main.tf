@@ -29,6 +29,7 @@ module "aks" {
   api_server_access_profile_authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
   max_pods = var.max_pods
   local_account_disabled = var.bool_true
+  disk_encryption_set_id = var.disk_encryption_set_id
 
   depends_on = [module.rg]
 }
