@@ -3,6 +3,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = var.dns_prefix
+  automatic_upgrade_channel = var.automatic_upgrade_channel
 
   default_node_pool {
     name       = var.default_node_pool_name

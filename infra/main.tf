@@ -25,6 +25,7 @@ module "aks" {
   identity_type = var.identity_type
   network_profile_network_policy = var.network_profile_network_policy
   oms_agent_log_analytics_workspace_id = var.oms_agent_log_analytics_workspace_id
+  automatic_upgrade_channel = var.automatic_upgrade_channel
 
   depends_on = [module.rg]
 }

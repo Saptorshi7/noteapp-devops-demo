@@ -73,6 +73,11 @@ variable "oms_agent_log_analytics_workspace_id" {
     default = "workspaceResourceId"
 }
 
+variable "automatic_upgrade_channel" {
+    type = string
+    default = "stable"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
