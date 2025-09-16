@@ -37,6 +37,7 @@ resource "azurerm_key_vault_key" "example" {
   key_type     = var.key_type
   key_opts = var.key_opts
   expiration_date = var.expiration_date
+  key_size = "2048"
 }
 
 resource "azurerm_disk_encryption_set" "example" {
