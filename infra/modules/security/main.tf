@@ -9,10 +9,10 @@ resource "azurerm_key_vault" "example" {
   purge_protection_enabled    = var.purge_protection_enabled
   public_network_access_enabled = var.public_network_access_enabled
 
-  # network_acls {
-  #                  default_action = var.network_acls_default_action
-  #                  bypass = var.network_acls_bypass
-  #                 }
+  network_acls {
+                   default_action = var.network_acls_default_action
+                   bypass = var.network_acls_bypass
+                  }
 
   # access_policy {
   #   tenant_id = data.azurerm_client_config.current.tenant_id
