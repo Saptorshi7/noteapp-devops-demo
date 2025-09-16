@@ -126,7 +126,15 @@ variable "key_opts" {
     "sign",
     "unwrapKey",
     "verify",
-    "wrapKey",
+    "wrapKey"
+  ]
+}
+
+variable "key_permissions" {
+    type = list(string)
+    default = [
+    "get",
+    "list"
   ]
 }
 

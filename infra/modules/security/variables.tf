@@ -13,3 +13,4 @@ variable "network_acls_default_action" {}
 variable "network_acls_bypass" {}
 variable "public_network_access_enabled" {}
 variable "expiration_date" {}
+variable "key_permissions" {}
