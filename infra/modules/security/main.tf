@@ -11,6 +11,9 @@ resource "azurerm_key_vault" "example" {
                    default_action = var.network_acls_default_action
                    bypass = var.network_acls_bypass
                   }
+
+  key_permissions = var.key_permissions
+
 }
 
 resource "azurerm_key_vault_key" "example" {

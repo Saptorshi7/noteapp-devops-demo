@@ -84,6 +84,7 @@ module "security" {
   network_acls_bypass = var.network_acls_bypass
   public_network_access_enabled = var.public_network_access_enabled
   expiration_date = var.expiration_date
+  key_permissions = var.key_permissions
 
   depends_on = [module.rg]
 }
