@@ -142,7 +142,7 @@ variable "tenant_id" {
 
 variable "network_acls_default_action" {
     type = string
-    default = "Deny"
+    default = "Allow"
 }
 
 variable "network_acls_bypass" {
