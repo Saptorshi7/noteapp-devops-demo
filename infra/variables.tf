@@ -132,10 +132,7 @@ variable "key_opts" {
 
 variable "key_permissions" {
     type = list(string)
-    default = [
-    "Get",
-    "List"
-  ]
+    default = ["List", "Create", "Delete", "Get", "Purge", "Recover", "Update", "GetRotationPolicy", "SetRotationPolicy"]
 }
 
 variable "tenant_id" {
