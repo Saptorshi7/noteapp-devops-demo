@@ -113,9 +113,21 @@ variable "workspace_retention_in_days" {
     default = 30
 }
 
-variable "azurerm_key_vault_key_value" {
+variable "key_type" {
     type = string
-    default = "your-key-value-here"
+    default = "RSA"
+}
+
+variable "key_opts" {
+    type = list(string)
+    default = [
+    "decrypt",
+    "encrypt",
+    "sign",
+    "unwrapKey",
+    "verify",
+    "wrapKey",
+  ]
 }
 
 variable "tenant_id" {

@@ -9,7 +9,8 @@ resource "azurerm_key_vault" "example" {
 resource "azurerm_key_vault_key" "example" {
   name         = var.key_name
   key_vault_id = azurerm_key_vault.example.id
-  value        = var.azurerm_key_vault_key_value
+  key_type     = var.key_type
+  key_opts = var.key_opts
 }
 
 resource "azurerm_disk_encryption_set" "example" {

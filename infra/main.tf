@@ -76,7 +76,8 @@ module "security" {
   resource_group_name = local.rg_name
   sku = var.standard_sku
   identity_type = var.identity_type
-  azurerm_key_vault_key_value = var.azurerm_key_vault_key_value
+  key_opts = var.key_opts
+  key_type = var.key_type
   tenant_id = var.tenant_id
 
   depends_on = [module.rg]

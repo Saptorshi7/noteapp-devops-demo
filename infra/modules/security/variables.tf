@@ -5,5 +5,6 @@ variable "resource_group_name" {}
 variable "location" {}
 variable "sku" {}
 variable "identity_type" {}
-variable "azurerm_key_vault_key_value" {}
+variable "key_type" {}
+variable "key_opts" {}
 variable "tenant_id" {}
