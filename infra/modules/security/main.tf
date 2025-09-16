@@ -4,6 +4,12 @@ resource "azurerm_key_vault" "example" {
   resource_group_name = var.resource_group_name
   sku_name            = var.sku
   tenant_id           = var.tenant_id
+  purge_protection_enabled    = var.purge_protection_enabled
+
+  network_acls {
+                   default_action = var.network_acls_default_action
+                   bypass = var.network_acls_bypass
+                  }
 }
 
 resource "azurerm_key_vault_key" "example" {

@@ -135,6 +135,16 @@ variable "tenant_id" {
     default = "ebd2885c-4d89-4edb-bcfa-53f290653bea"
 }
 
+variable "network_acls_default_action" {
+    type = string
+    default = "Deny"
+}
+
+variable "network_acls_bypass" {
+    type = string
+    default = "AzureServices"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

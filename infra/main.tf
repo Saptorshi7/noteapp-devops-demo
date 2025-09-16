@@ -79,6 +79,9 @@ module "security" {
   key_opts = var.key_opts
   key_type = var.key_type
   tenant_id = var.tenant_id
+  purge_protection_enabled = var.bool_true
+  network_acls_default_action = var.network_acls_default_action
+  network_acls_bypass = var.network_acls_bypass
 
   depends_on = [module.rg]
 }

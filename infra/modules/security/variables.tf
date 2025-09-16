@@ -8,3 +8,6 @@ variable "identity_type" {}
 variable "key_type" {}
 variable "key_opts" {}
 variable "tenant_id" {}
+variable "purge_protection_enabled" {}
+variable "network_acls_default_action" {}
+variable "network_acls_bypass" {}
