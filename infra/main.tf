@@ -82,6 +82,7 @@ module "security" {
   purge_protection_enabled = var.bool_true
   network_acls_default_action = var.network_acls_default_action
   network_acls_bypass = var.network_acls_bypass
+  public_network_access_enabled = var.public_network_access_enabled
 
   depends_on = [module.rg]
 }
