@@ -93,7 +93,7 @@ variable "disk_encryption_set_id" {
     default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.Compute/diskEncryptionSets/my-des"
 }
 
-variable "standard_sku" {
+variable "aks_sku" {
     type = string
     default = "Standard"
 }
@@ -148,6 +148,11 @@ variable "network_acls_bypass" {
 variable "expiration_date" {
     type = string
     default = "2025-12-30T20:00:00Z"
+}
+
+variable "kv_sku" {
+    type = string
+    default = "standard"
 }
 
 locals {

@@ -30,7 +30,7 @@ module "aks" {
   default_node_pool_max_pods = var.max_pods
   bool_true = var.bool_true
   disk_encryption_set_id = module.security.disk_encryption_set_id
-  aks_sku = var.standard_sku
+  aks_sku = var.aks_sku
   default_node_pool_os_disk_type = var.default_node_pool_os_disk_type
 
   depends_on = [module.rg, module.monitoring]
@@ -74,7 +74,7 @@ module "security" {
   encryption_set_name     = local.encryption_set_name
   location = var.location
   resource_group_name = local.rg_name
-  sku = var.standard_sku
+  sku = var.kv_sku
   identity_type = var.identity_type
   key_opts = var.key_opts
   key_type = var.key_type
