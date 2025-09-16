@@ -1,0 +1,8 @@
+variable "kv_name" {}
+variable "key_name" {}
+variable "encryption_set_name" {}
+variable "resource_group_name" {}
+variable "location" {}
+variable "sku" {}
+variable "identity_type" {}
+variable "azurerm_key_vault_key_value" {}

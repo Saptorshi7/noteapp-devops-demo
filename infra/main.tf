@@ -29,8 +29,8 @@ module "aks" {
   api_server_access_profile_authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
   default_node_pool_max_pods = var.max_pods
   bool_true = var.bool_true
-  disk_encryption_set_id = var.disk_encryption_set_id
-  aks_sku = var.aks_sku
+  disk_encryption_set_id = module.security.disk_encryption_set_id
+  aks_sku = var.standard_sku
   default_node_pool_os_disk_type = var.default_node_pool_os_disk_type
 
   depends_on = [module.rg, module.monitoring]
@@ -62,6 +62,21 @@ module "monitoring" {
   resource_group_name = local.rg_name
   sku = var.workspace_sku
   retention_in_days = var.workspace_retention_in_days
+
+  depends_on = [module.rg]
+}
+
+module "security" {
+  source              = "./modules/security"
+
+  kv_name     = local.kv_name
+  key_name     = local.key_name
+  encryption_set_name     = local.encryption_set_name
+  location = var.location
+  resource_group_name = local.rg_name
+  sku = var.standard_sku
+  identity_type = var.identity_type
+  azurerm_key_vault_key_value = var.azurerm_key_vault_key_value
 
   depends_on = [module.rg]
 }

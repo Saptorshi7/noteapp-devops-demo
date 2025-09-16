@@ -5,7 +5,7 @@ variable "location" {
 
 variable "georeplications_location" {
     type = string
-    default = "South India"
+    default = "Southeast Asia"
 }
 
 variable "project_name" {
@@ -93,7 +93,7 @@ variable "disk_encryption_set_id" {
     default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.Compute/diskEncryptionSets/my-des"
 }
 
-variable "aks_sku" {
+variable "standard_sku" {
     type = string
     default = "Standard"
 }
@@ -113,8 +113,16 @@ variable "workspace_retention_in_days" {
     default = 30
 }
 
+variable "azurerm_key_vault_key_value" {
+    type = string
+    default = "your-key-value-here"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
   workspace_name = "${var.project_name}-workspace"
+  kv_name = "${var.project_name}-kv"
+  key_name = "${var.project_name}-key"
+  encryption_set_name = "${var.project_name}-encryption_set"
 }
