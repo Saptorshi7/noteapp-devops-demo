@@ -33,7 +33,7 @@ module "aks" {
   aks_sku = var.aks_sku
   default_node_pool_os_disk_type = var.default_node_pool_os_disk_type
 
-  depends_on = [module.rg]
+  depends_on = [module.rg, module.monitoring]
 }
 
 # Azure Container Registry (ACR)
@@ -52,4 +52,14 @@ module "acr" {
   no_one = var.no_one
 
   depends_on = [module.rg]
+}
+
+module "monitoring" {
+  source              = "./modules/monitoring"
+
+  name     = local.workspace_name
+  location = var.location
+  resource_group_name = local.rg_name
+  sku = var.workspace_sku
+  retention_in_days = var.workspace_retention_in_days
 }

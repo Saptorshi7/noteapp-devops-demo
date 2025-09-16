@@ -1,11 +1,11 @@
 variable "location" {
     type = string
-    default = "South India"
+    default = "Central India"
 }
 
 variable "georeplications_location" {
     type = string
-    default = "Central India"
+    default = "South India"
 }
 
 variable "project_name" {
@@ -103,7 +103,18 @@ variable "default_node_pool_os_disk_type" {
     default = "Ephemeral"
 }
 
+variable "workspace_sku" {
+    type = string
+    default = "PerGB2018"
+}
+
+variable "workspace_retention_in_days" {
+    type = number
+    default = 30
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
+  workspace_name = "${var.project_name}-workspace"
 }
