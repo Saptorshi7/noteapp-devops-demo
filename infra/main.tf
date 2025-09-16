@@ -47,7 +47,7 @@ module "acr" {
   bool_true = var.bool_true
   # resource_type = var.resource_type
   # tier          = var.tier
-  public_network_access_enabled = var.bool_true
+  public_network_access_enabled = var.public_network_access_enabled
   georeplications_location = var.georeplications_location
   no_one = var.no_one
 
@@ -82,7 +82,7 @@ module "security" {
   purge_protection_enabled = var.bool_true
   network_acls_default_action = var.network_acls_default_action
   network_acls_bypass = var.network_acls_bypass
-  public_network_access_enabled = var.public_network_access_enabled
+  public_network_access_enabled = var.bool_true
   expiration_date = var.expiration_date
   key_permissions = var.key_permissions
 
