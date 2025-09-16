@@ -47,7 +47,7 @@ module "acr" {
   bool_true = var.bool_true
   # resource_type = var.resource_type
   # tier          = var.tier
-  public_network_access_enabled = var.public_network_access_enabled
+  public_network_access_enabled = var.bool_true
   georeplications_location = var.georeplications_location
   no_one = var.no_one
 
