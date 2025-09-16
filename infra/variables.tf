@@ -127,6 +127,8 @@ variable "key_opts" {
     "unwrapKey",
     "verify",
     "wrapKey",
+    "get",
+    "list"
   ]
 }
 
