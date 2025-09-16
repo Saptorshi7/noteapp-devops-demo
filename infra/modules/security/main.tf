@@ -7,7 +7,7 @@ resource "azurerm_key_vault" "example" {
   sku_name            = var.sku
   tenant_id           = var.tenant_id
   purge_protection_enabled    = var.purge_protection_enabled
-  public_network_access_enabled = var.public_network_access_enabled
+  # public_network_access_enabled = var.public_network_access_enabled
 
   # network_acls {
   #                  default_action = var.network_acls_default_action
