@@ -133,8 +133,8 @@ variable "key_opts" {
 variable "key_permissions" {
     type = list(string)
     default = [
-    "get",
-    "list"
+    "Get",
+    "List"
   ]
 }
 

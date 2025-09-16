@@ -33,7 +33,7 @@ module "aks" {
   aks_sku = var.aks_sku
   default_node_pool_os_disk_type = var.default_node_pool_os_disk_type
 
-  depends_on = [module.rg, module.monitoring]
+  depends_on = [module.rg, module.monitoring, module.security]
 }
 
 # Azure Container Registry (ACR)
