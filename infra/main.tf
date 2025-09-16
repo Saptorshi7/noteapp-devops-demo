@@ -61,5 +61,5 @@ module "monitoring" {
   location = var.location
   resource_group_name = local.rg_name
   sku = var.workspace_sku
-  retention_in_days = var.no_one
+  retention_in_days = var.workspace_retention_in_days
 }

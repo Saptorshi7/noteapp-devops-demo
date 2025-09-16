@@ -108,6 +108,11 @@ variable "workspace_sku" {
     default = "PerGB2018"
 }
 
+variable "workspace_retention_in_days" {
+    type = number
+    default = 30
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
