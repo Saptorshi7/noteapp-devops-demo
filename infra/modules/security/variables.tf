@@ -6,3 +6,4 @@ variable "location" {}
 variable "sku" {}
 variable "identity_type" {}
 variable "azurerm_key_vault_key_value" {}
+variable "tenant_id" {}

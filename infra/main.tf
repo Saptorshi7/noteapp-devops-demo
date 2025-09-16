@@ -77,6 +77,7 @@ module "security" {
   sku = var.standard_sku
   identity_type = var.identity_type
   azurerm_key_vault_key_value = var.azurerm_key_vault_key_value
+  tenant_id = var.tenant_id
 
   depends_on = [module.rg]
 }

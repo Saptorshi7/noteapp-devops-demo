@@ -118,6 +118,11 @@ variable "azurerm_key_vault_key_value" {
     default = "your-key-value-here"
 }
 
+variable "tenant_id" {
+    type = string
+    default = "ebd2885c-4d89-4edb-bcfa-53f290653bea"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"

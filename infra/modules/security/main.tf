@@ -3,6 +3,7 @@ resource "azurerm_key_vault" "example" {
   location            = var.location
   resource_group_name = var.resource_group_name
   sku_name            = var.sku
+  tenant_id           = var.tenant_id
 }
 
 resource "azurerm_key_vault_key" "example" {
@@ -19,8 +20,7 @@ resource "azurerm_disk_encryption_set" "example" {
   identity {
     type = var.identity_type
   }
-
-  encryption_specification {
-    key_vault_key_id = azurerm_key_vault_key.example.id
-  }
+   
+  key_vault_key_id = azurerm_key_vault_key.example.id
+  
 }
