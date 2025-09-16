@@ -24,7 +24,7 @@ module "aks" {
   default_node_pool_vm_size    = var.default_node_pool_vm_size
   identity_type = var.identity_type
   network_profile_network_policy = var.network_profile_network_policy
-  oms_agent_log_analytics_workspace_id = module.log_analytics.log_analytics_workspace_id
+  oms_agent_log_analytics_workspace_id = module.monitoring.log_analytics_workspace_id
   automatic_upgrade_channel = var.automatic_upgrade_channel
   api_server_access_profile_authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
   default_node_pool_max_pods = var.max_pods
