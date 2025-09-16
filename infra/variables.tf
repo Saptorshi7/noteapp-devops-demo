@@ -115,7 +115,7 @@ variable "workspace_retention_in_days" {
 
 variable "key_type" {
     type = string
-    default = "RSA"
+    default = "RSA-HSM"
 }
 
 variable "key_opts" {
@@ -143,6 +143,11 @@ variable "network_acls_default_action" {
 variable "network_acls_bypass" {
     type = string
     default = "AzureServices"
+}
+
+variable "expiration_date" {
+    type = string
+    default = "2025-12-30T20:00:00Z"
 }
 
 locals {
