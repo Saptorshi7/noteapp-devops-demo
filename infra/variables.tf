@@ -5,7 +5,7 @@ variable "location" {
 
 variable "georeplications_location" {
     type = string
-    default = "South India"
+    default = "Southeast Asia"
 }
 
 variable "project_name" {
@@ -113,8 +113,53 @@ variable "workspace_retention_in_days" {
     default = 30
 }
 
+variable "key_type" {
+    type = string
+    default = "RSA-HSM"
+}
+
+variable "key_opts" {
+    type = list(string)
+    default = [
+    "decrypt",
+    "encrypt",
+    "sign",
+    "unwrapKey",
+    "verify",
+    "wrapKey",
+  ]
+}
+
+variable "tenant_id" {
+    type = string
+    default = "ebd2885c-4d89-4edb-bcfa-53f290653bea"
+}
+
+variable "network_acls_default_action" {
+    type = string
+    default = "Deny"
+}
+
+variable "network_acls_bypass" {
+    type = string
+    default = "AzureServices"
+}
+
+variable "expiration_date" {
+    type = string
+    default = "2025-12-30T20:00:00Z"
+}
+
+variable "kv_sku" {
+    type = string
+    default = "standard"
+}
+
 locals {
   rg_name = "${var.project_name}-rg"
   aks_name = "${var.project_name}-aks"
   workspace_name = "${var.project_name}-workspace"
+  kv_name = "${var.project_name}-kv"
+  key_name = "${var.project_name}-key"
+  encryption_set_name = "${var.project_name}-encryption_set"
 }

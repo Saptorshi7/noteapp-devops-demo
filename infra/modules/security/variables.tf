@@ -1,0 +1,15 @@
+variable "kv_name" {}
+variable "key_name" {}
+variable "encryption_set_name" {}
+variable "resource_group_name" {}
+variable "location" {}
+variable "sku" {}
+variable "identity_type" {}
+variable "key_type" {}
+variable "key_opts" {}
+variable "tenant_id" {}
+variable "purge_protection_enabled" {}
+variable "network_acls_default_action" {}
+variable "network_acls_bypass" {}
+variable "public_network_access_enabled" {}
+variable "expiration_date" {}
