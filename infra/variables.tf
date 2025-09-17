@@ -108,11 +108,6 @@ variable "subscription_id" {
     default = "a212de98-e4e5-43b3-99d4-2359ceb44aaf"
 }
 
-variable "azurerm_version" {
-    type = string
-    default = "=4.41.0"
-}
-
 variable "no_one" {
     type = number
     default = 1

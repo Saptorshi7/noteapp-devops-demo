@@ -10,13 +10,24 @@ resource "azurerm_key_vault" "example" {
 
 }
 
-# resource "azurerm_key_vault_access_policy" "example" {
-#   key_vault_id = azurerm_key_vault.example.id
-#   tenant_id    = data.azurerm_client_config.current.tenant_id
-#   object_id    = data.azurerm_client_config.current.object_id
+resource "azurerm_key_vault_access_policy" "example" {
+  key_vault_id = azurerm_key_vault.example.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = data.azurerm_client_config.current.object_id
 
-#   key_permissions = var.key_permissions
-# }
+  key_permissions = var.key_permissions
+}
+
+resource "azurerm_key_vault_access_policy" "des_policy" {
+  key_vault_id = azurerm_key_vault.example.id
+
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = azurerm_disk_encryption_set.example.identity[0].principal_id
+
+  key_permissions = var.azurerm_key_vault_access_policy_des_key_permissions
+
+  depends_on = [ azurerm_disk_encryption_set.example ]
+}
 
 resource "azurerm_key_vault_key" "example" {
   name         = var.key_name
@@ -40,27 +51,4 @@ resource "azurerm_disk_encryption_set" "example" {
    
   key_vault_key_id = azurerm_key_vault_key.example.id
   
-}
-
-# resource "azurerm_key_vault_access_policy" "des_policy" {
-#   key_vault_id = azurerm_key_vault.example.id
-
-#   tenant_id = data.azurerm_client_config.current.tenant_id
-#   object_id = azurerm_disk_encryption_set.example.identity[0].principal_id
-
-#   key_permissions = var.azurerm_key_vault_access_policy_des_key_permissions
-
-#   depends_on = [ azurerm_disk_encryption_set.example ]
-# }
-
-resource "azurerm_key_vault_access_policy" "policies" {
-  for_each    = local.key_vault_access_policies
-  key_vault_id = azurerm_key_vault.example.id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = each.value.object_id
-
-  key_permissions = each.value.key_permissions
-
-  # Note: depends_on cannot be dynamically set directly, use explicit depends_on if needed
-  depends_on = each.value.depends_on
 }
