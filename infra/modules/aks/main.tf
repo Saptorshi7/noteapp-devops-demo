@@ -4,7 +4,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   resource_group_name = var.resource_group_name
   dns_prefix          = var.dns_prefix
   automatic_upgrade_channel = var.automatic_upgrade_channel
-  local_account_disabled = var.bool_true
+  # local_account_disabled = var.bool_true
   disk_encryption_set_id = var.disk_encryption_set_id
   azure_policy_enabled = var.bool_true
   private_cluster_enabled = var.bool_true
