@@ -113,6 +113,11 @@ variable "no_one" {
     default = 1
 }
 
+variable "default_node_pool_node_count" {
+    type = number
+    default = 2
+}
+
 variable "max_pods" {
     type = number
     default = 50
