@@ -33,9 +33,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
       log_analytics_workspace_id = var.oms_agent_log_analytics_workspace_id
     }
   
-  api_server_access_profile {
-    authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
-  }
+  # api_server_access_profile {
+  #   authorized_ip_ranges = var.api_server_access_profile_authorized_ip_ranges
+  # }
 
   key_vault_secrets_provider {
     secret_rotation_enabled = var.bool_true

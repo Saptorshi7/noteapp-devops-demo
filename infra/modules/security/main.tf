@@ -38,6 +38,8 @@ resource "azurerm_key_vault_key" "example" {
   key_opts = var.key_opts
   expiration_date = var.expiration_date
   key_size = "2048"
+
+  # depends_on = [ azurerm_key_vault_access_policy.example ]
 }
 
 resource "azurerm_disk_encryption_set" "example" {
