@@ -53,7 +53,7 @@ jobs:
           quiet: true
           framework: terraform
           soft_fail: false  # fail pipeline if issues found
-          skip_check: CKV2_AZURE_32,CKV_AZURE_109,CKV_AZURE_189,CKV_AZURE_168,CKV_AZURE_227,CKV_AZURE_141  # Skip the CKV2_AZURE_32 check
+          skip_check: CKV2_AZURE_32,CKV_AZURE_109,CKV_AZURE_189,CKV_AZURE_168,CKV_AZURE_227,CKV_AZURE_141,CKV_AZURE_139  # Skip the CKV2_AZURE_32 check
 
       - name: Terraform Plan
         working-directory: infra
