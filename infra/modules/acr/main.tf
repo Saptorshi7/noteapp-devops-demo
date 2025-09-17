@@ -16,9 +16,3 @@ resource "azurerm_container_registry" "acr" {
     tags                    = {}
  }
 }
-
-# Enable Defender for Container Registries (ACR image scanning)
-# resource "azurerm_security_center_subscription_pricing" "container_registry" {
-#   resource_type = var.resource_type
-#   tier          = var.tier # ✅ Required to enable vulnerability scanning
-# }

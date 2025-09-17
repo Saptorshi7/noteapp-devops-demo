@@ -18,11 +18,6 @@ variable "default_node_pool_name" {
     default = "default"
 }
 
-variable "no_one" {
-    type = number
-    default = 1
-}
-
 variable "default_node_pool_vm_size" {
     type = string
     default = "Standard_D4ds_v4"
@@ -48,16 +43,6 @@ variable "bool_true" {
     default = "true"
 }
 
-# variable "resource_type" {
-#     type = string
-#     default = "ContainerRegistry"
-# }
-
-# variable "tier" {
-#     type = string
-#     default = "Standard"
-# }
-
 variable "public_network_access_enabled" {
     type = string
     default = "false"
@@ -68,29 +53,9 @@ variable "network_profile_network_policy" {
     default = "azure"
 }
 
-variable "oms_agent_log_analytics_workspace_id" {
-    type = string
-    default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
-}
-
 variable "automatic_upgrade_channel" {
     type = string
     default = "stable"
-}
-
-variable "api_server_access_profile_authorized_ip_ranges" {
-     type    = list(string)
-  default = ["192.168.0.0/16"] # ✅ list of strings
-}
-
-variable "max_pods" {
-    type = number
-    default = 50
-}
-
-variable "disk_encryption_set_id" {
-    type = string
-    default = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/my-rg/providers/Microsoft.Compute/diskEncryptionSets/my-des"
 }
 
 variable "aks_sku" {
@@ -108,31 +73,9 @@ variable "workspace_sku" {
     default = "PerGB2018"
 }
 
-variable "workspace_retention_in_days" {
-    type = number
-    default = 30
-}
-
 variable "key_type" {
     type = string
     default = "RSA-HSM"
-}
-
-variable "key_opts" {
-    type = list(string)
-    default = [
-    "decrypt",
-    "encrypt",
-    "sign",
-    "unwrapKey",
-    "verify",
-    "wrapKey"
-  ]
-}
-
-variable "key_permissions" {
-    type = list(string)
-    default = ["List", "Create", "Delete", "Get", "Purge", "Recover", "Update", "GetRotationPolicy", "SetRotationPolicy"]
 }
 
 variable "tenant_id" {
@@ -157,7 +100,58 @@ variable "expiration_date" {
 
 variable "kv_sku" {
     type = string
-    default = "standard"
+    default = "premium"
+}
+
+variable "subscription_id" {
+    type = string
+    default = "a212de98-e4e5-43b3-99d4-2359ceb44aaf"
+}
+
+variable "no_one" {
+    type = number
+    default = 1
+}
+
+variable "max_pods" {
+    type = number
+    default = 50
+}
+
+variable "workspace_retention_in_days" {
+    type = number
+    default = 30
+}
+
+variable "key_size" {
+    type = number
+    default = 2048
+}
+
+variable "key_opts" {
+    type = list(string)
+    default = [
+    "decrypt",
+    "encrypt",
+    "sign",
+    "unwrapKey",
+    "verify",
+    "wrapKey"
+  ]
+}
+
+variable "key_permissions" {
+    type = list(string)
+    default = ["List", "Create", "Delete", "Get", "Purge", "Recover", "Update", "GetRotationPolicy", "SetRotationPolicy"]
+}
+
+variable "azurerm_key_vault_access_policy_des_key_permissions" {
+    type = list(string)
+    default = [
+    "Get",
+    "WrapKey",
+    "UnwrapKey"
+  ]
 }
 
 locals {
