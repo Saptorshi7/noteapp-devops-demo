@@ -40,6 +40,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
 resource "azurerm_kubernetes_cluster_node_pool" "mem" {
  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
  name                  = "mem"
- node_count            = "1"
- vm_size               = "standard_d11_v2"
+ node_count            = var.default_node_pool_node_count
+ vm_size               = var.default_node_pool_vm_size
 }
