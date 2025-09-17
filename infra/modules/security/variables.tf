@@ -14,3 +14,5 @@ variable "network_acls_bypass" {}
 variable "public_network_access_enabled" {}
 variable "expiration_date" {}
 variable "key_permissions" {}
+variable "key_size" {}
+variable "azurerm_key_vault_access_policy_des_key_permissions" {}
