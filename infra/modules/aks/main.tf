@@ -6,7 +6,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   automatic_upgrade_channel = var.automatic_upgrade_channel
   disk_encryption_set_id = var.disk_encryption_set_id
   azure_policy_enabled = var.bool_true
-  private_cluster_enabled = var.bool_true
+  # private_cluster_enabled = var.bool_true
   sku_tier = var.aks_sku
 
   default_node_pool {
