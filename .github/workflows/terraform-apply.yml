@@ -43,3 +43,13 @@ jobs:
       - name: Terraform Apply
         working-directory: infra
         run: terraform apply -auto-approve -input=false
+
+      - name: Create and Push Tag
+        if: success()
+        run: |
+          TAG="infra-$(date +%Y%m%d%H%M%S)"
+          echo "Creating tag: $TAG"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag $TAG
+          git push origin $TAG
